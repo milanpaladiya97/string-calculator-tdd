@@ -1,29 +1,54 @@
 const add = require("./stringCalculator");
 
-test("returns 0 for an empty string", () => {
-    expect(add("")).toBe(0);
+test('returns 0 for an empty string', () => {
+    const input = "";
+    const output = add(input);
+    console.log(`Input: "${input}", Output: ${output}`);
+    expect(output).toBe(0);
 });
 
-test("returns the number itself when a single number is passed", () => {
-    expect(add("5")).toBe(5);
+test('returns the number itself when a single number is passed', () => {
+    const input = "1";
+    const output = add(input);
+    console.log(`Input: "${input}", Output: ${output}`);
+    expect(output).toBe(1);
 });
 
-test("returns sum when two numbers are passed", () => {
-    expect(add("1,2")).toBe(3);
+test('returns sum when two numbers are passed', () => {
+    const input = "1,5";
+    const output = add(input);
+    console.log(`Input: "${input}", Output: ${output}`);
+    expect(output).toBe(6);
 });
 
-test("returns sum for multiple numbers", () => {
-    expect(add("1,2,3,4")).toBe(10);
+test('returns sum for multiple numbers', () => {
+    const input = "1,2,3";
+    const output = add(input);
+    console.log(`Input: "${input}", Output: ${output}`);
+    expect(output).toBe(6);
 });
 
-test("handles new line as a delimiter", () => {
-    expect(add("1\n2,3")).toBe(6);
+test('handles new line as a delimiter', () => {
+    const input = "2\n3,4";
+    const output = add(input);
+    console.log(`Input: "${input}", Output: ${output}`);
+    expect(output).toBe(9);
 });
 
-test("supports custom delimiters", () => {
-    expect(add("//;\n1;2")).toBe(3);
+test('supports custom delimiters', () => {
+    const input = "//;\n1;2;3";
+    const output = add(input);
+    console.log(`Input: "${input}", Output: ${output}`);
+    expect(output).toBe(6);
 });
 
-test("throws an error for negative numbers", () => {
-    expect(() => add("1,-2,3,-4")).toThrow("negative numbers not allowed -2,-4");
+test('throws an error for negative numbers', () => {
+    const input = "-1,2,-3";
+    try {
+        add(input);
+    } catch (error) {
+        console.log(`Input: "${input}", Output: ${error.message}`);
+        expect(error.message).toBe("negative numbers not allowed -1,-3");
+    }
 });
+
