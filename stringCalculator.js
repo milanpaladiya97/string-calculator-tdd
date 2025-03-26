@@ -1,5 +1,6 @@
 function add(numbers) {
-    return 0; // Default case for an empty string
+    if (numbers === "") return 0;
+    return parseInt(numbers, 10);
 }
 
 module.exports = add;
