@@ -1,3 +1,14 @@
+// stringCalculator.js - String Calculator using TDD
+// Author: Milan
+
+/**
+ * String Calculator Function (TDD Approach)
+ * Supports:
+ * - Comma (,) and newline (\n) as default delimiters
+ * - Custom delimiters (//[delimiter]\n[numbers...])
+ * - Throws error for negative numbers
+ */
+
 function add(numbers) {
     if (numbers === "") return 0;
 
