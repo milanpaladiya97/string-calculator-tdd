@@ -11,3 +11,7 @@ test("returns the number itself when a single number is passed", () => {
 test("returns sum when two numbers are passed", () => {
     expect(add("1,2")).toBe(3);
 });
+
+test("returns sum for multiple numbers", () => {
+    expect(add("1,2,3,4")).toBe(10);
+});
