@@ -20,6 +20,15 @@ function add(numbers) {
         numbers = parts[1];
     }
 
+    const tokens = numbers.split(delimiter);
+
+    // Check for non-numeric (alphabetic or invalid) entries
+    for (const token of tokens) {
+        if (!/^-?\d+$/.test(token.trim())) {
+            throw new Error(`invalid input detected: ${token}`);
+        }
+    }
+    
     const numArray = numbers.split(delimiter).map(num => parseInt(num, 10));
 
     const negatives = numArray.filter(num => num < 0);

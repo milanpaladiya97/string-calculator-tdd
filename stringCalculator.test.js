@@ -52,3 +52,13 @@ test('throws an error for negative numbers', () => {
     }
 });
 
+test('throws an error for number and alpha', () => {
+    const input = "1,43,ab,fg,34";
+    try {
+        add(input);
+    } catch (error) {
+        console.log(`Input: "${input}", Output: ${error.message}`);
+        expect('number and alpha numbers not allowed ab, fg');
+    }
+});
+
