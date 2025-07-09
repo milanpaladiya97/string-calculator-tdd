@@ -10,4 +10,9 @@ describe('String Calculator', () => {
     const calculator = new Calculator();
     expect(calculator.add('1')).toBe(1);
   });
+
+  test('should return 6 for input "1,5"', () => {
+    const calculator = new Calculator();
+    expect(calculator.add('1,5')).toBe(6);
+  });
 });

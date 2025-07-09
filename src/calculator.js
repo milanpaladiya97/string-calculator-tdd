@@ -3,7 +3,11 @@ class Calculator {
     if (numbers === '') {
       return 0;
     }
-    return parseInt(numbers, 10);
+    if (!numbers.includes(',')) {
+      return parseInt(numbers, 10);
+    }
+    const numberArray = numbers.split(',').map(num => parseInt(num, 10));
+    return numberArray.reduce((sum, num) => sum + num, 0);
   }
 }
 
