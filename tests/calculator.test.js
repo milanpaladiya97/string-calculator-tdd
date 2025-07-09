@@ -20,4 +20,9 @@ describe('String Calculator', () => {
     const calculator = new Calculator();
     expect(calculator.add('1,2,3,4')).toBe(10);
   });
+
+  test('should return 6 for input "1\n2,3"', () => {
+    const calculator = new Calculator();
+    expect(calculator.add('1\n2,3')).toBe(6);
+  });
 });
