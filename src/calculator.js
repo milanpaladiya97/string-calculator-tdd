@@ -8,7 +8,7 @@ class Calculator {
 
     if (numbers.startsWith('//')) {
       const parts = numbers.split('\n', 2);
-      delimiter = new RegExp(parts[0].slice(2));
+      delimiter = new RegExp(parts[0].slice(2).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
       numberString = parts[1];
     }
 
