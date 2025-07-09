@@ -12,7 +12,10 @@ class Calculator {
       numberString = parts[1];
     }
 
-    const numberArray = numberString.split(delimiter).map(num => parseInt(num, 10));
+    const numberArray = numberString
+      .split(delimiter)
+      .map(num => parseInt(num, 10))
+      .filter(num => !isNaN(num));
     const negatives = numberArray.filter(num => num < 0);
     if (negatives.length > 0) {
       throw new Error(`negative numbers not allowed ${negatives.join(',')}`);
