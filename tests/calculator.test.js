@@ -25,4 +25,9 @@ describe('String Calculator', () => {
     const calculator = new Calculator();
     expect(calculator.add('1\n2,3')).toBe(6);
   });
+
+  test('should return 3 for input "//;\n1;2"', () => {
+    const calculator = new Calculator();
+    expect(calculator.add('//;\n1;2')).toBe(3);
+  });
 });
